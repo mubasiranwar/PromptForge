@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&display=swap');
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #f7f3ec;
+  color: #202321;
+  font-family: "Manrope", sans-serif;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button,
+input,
+textarea,
+select {
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease, background-color 180ms ease;
+}
+
+::selection {
+  background: #f0b35b;
+  color: #202321;
+}
+
+main {
+  background-color: #f7f3ec;
+  background-image: linear-gradient(120deg, rgba(238, 179, 91, 0.18), transparent 28%), linear-gradient(260deg, rgba(91, 163, 149, 0.14), transparent 34%), radial-gradient(#d8d0c2 0.7px, transparent 0.7px);
+  background-size: auto, auto, 22px 22px;
+}
+
+main > div > header {
+  border-color: #e4d9ca;
+  background: rgba(255, 253, 249, 0.86);
+  box-shadow: 0 18px 45px rgba(99, 71, 43, 0.08);
+}
+
+main > div > header .h-10 {
+  background: linear-gradient(135deg, #e76f51, #c84b3c);
+  box-shadow: 0 8px 18px rgba(200, 75, 60, 0.24);
+}
+
+aside > div,
+section.rounded-2xl,
+section.rounded-3xl,
+div.rounded-2xl.border.bg-white {
+  border-color: #e4d9ca;
+  background: rgba(255, 253, 249, 0.9);
+  box-shadow: 0 18px 45px rgba(99, 71, 43, 0.07);
+}
+
+aside .bg-zinc-900,
+main header .bg-zinc-900 {
+  background: #e76f51;
+}
+
+aside .bg-zinc-900:hover,
+main header .bg-zinc-900:hover {
+  background: #c84b3c;
+}
+
+aside .border-zinc-900.bg-zinc-900 {
+  border-color: #e76f51;
+  background: linear-gradient(135deg, #e76f51, #c84b3c);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #5ba395 !important;
+  box-shadow: 0 0 0 3px rgba(91, 163, 149, 0.18);
+}
+
+footer {
+  border-color: #e4d9ca;
+}
+
+::selection {
+  background: #18181b;
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
+}
