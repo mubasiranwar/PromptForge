@@ -76,3 +76,14 @@ Email:
 {{email}}`,
   },
 ];
+
+export const templateCategories = [
+  "All",
+  ...new Set(
+    starterTemplates.map(
+      (template) => template.category
+    )
+  ),
+  "Custom",
+  "Favorites",
+];

@@ -1,6 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import {
+  Check,
+  Star,
+  Trash2,
+} from "lucide-react";
 
 import { parseVariables } from "@/utils/parseVariables";
 import { compilePrompt } from "@/utils/compilePrompt";
@@ -72,7 +77,6 @@ export default function TemplateEditor({
 
   return (
     <section className="space-y-6">
-      {/* HEADER */}
       <div className="flex flex-col justify-between gap-5 md:flex-row md:items-center">
         <div>
           <div className="flex flex-wrap items-center gap-2">
@@ -100,28 +104,33 @@ export default function TemplateEditor({
           <div className="flex gap-2">
             <button
               onClick={onFavorite}
-              className="rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm font-semibold text-zinc-600 shadow-sm transition hover:bg-zinc-50"
+              className="inline-flex items-center gap-2 rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm font-semibold text-zinc-600 shadow-sm transition hover:bg-zinc-50"
             >
+              <Star
+                className={`h-4 w-4 ${
+                  template.favorite
+                    ? "fill-amber-400 text-amber-400"
+                    : "text-zinc-400"
+                }`}
+              />
               {template.favorite
-                ? "★ Favorited"
-                : "☆ Favorite"}
+                ? "Favorited"
+                : "Favorite"}
             </button>
 
             <button
               onClick={onDelete}
-              className="rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm font-semibold text-zinc-600 shadow-sm transition hover:bg-zinc-50"
+              className="inline-flex items-center gap-2 rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm font-semibold text-zinc-600 shadow-sm transition hover:bg-zinc-50"
             >
+              <Trash2 className="h-4 w-4" />
               Delete
             </button>
           </div>
         )}
       </div>
 
-      {/* MAIN CONTENT */}
       <div className="grid gap-6 xl:grid-cols-[1fr_0.9fr]">
-        {/* LEFT SIDE */}
         <div className="space-y-6">
-          {/* TEMPLATE EDITOR */}
           <div className="rounded-3xl border border-zinc-200 bg-white p-5 shadow-sm md:p-6">
             <div className="mb-4 flex items-center justify-between">
               <div>
@@ -161,7 +170,6 @@ export default function TemplateEditor({
             </div>
           </div>
 
-          {/* VARIABLES */}
           <div className="rounded-3xl border border-zinc-200 bg-white p-5 shadow-sm md:p-6">
             <div className="mb-6">
               <p className="text-xs font-semibold uppercase tracking-widest text-zinc-400">
@@ -185,7 +193,6 @@ export default function TemplateEditor({
               onChange={handleVariableChange}
             />
 
-            {/* MISSING VARIABLES */}
             {missingVariables.length > 0 && (
               <div className="mt-6 rounded-2xl border border-zinc-200 bg-zinc-50 p-4">
                 <div className="flex items-center justify-between gap-3">
@@ -230,7 +237,6 @@ export default function TemplateEditor({
             )}
           </div>
 
-          {/* PRESETS */}
           <div className="rounded-3xl border border-zinc-200 bg-white p-5 shadow-sm md:p-6">
             <div className="mb-6">
               <p className="text-xs font-semibold uppercase tracking-widest text-zinc-400">
@@ -249,26 +255,24 @@ export default function TemplateEditor({
             />
           </div>
 
-          {/* SAVE BUTTON */}
           {template.isCustom && (
             <div className="flex justify-end">
               <button
                 onClick={handleSave}
-                className="rounded-xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-zinc-800"
+                className="inline-flex items-center gap-2 rounded-xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-zinc-800"
               >
+                <Check className="h-4 w-4" />
                 Save Changes
               </button>
             </div>
           )}
         </div>
 
-        {/* RIGHT SIDE - LIVE PREVIEW */}
         <div className="xl:sticky xl:top-6 xl:self-start">
           <PromptPreview prompt={compiledPrompt} />
         </div>
       </div>
 
-      {/* DETECTED VARIABLES */}
       <div className="rounded-3xl border border-zinc-200 bg-white p-5 shadow-sm md:p-6">
         <div className="mb-4">
           <p className="text-xs font-semibold uppercase tracking-widest text-zinc-400">

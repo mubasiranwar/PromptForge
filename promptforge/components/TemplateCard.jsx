@@ -1,3 +1,5 @@
+import { Star } from "lucide-react";
+
 export default function TemplateCard({
   template,
   selected,
@@ -50,15 +52,13 @@ export default function TemplateCard({
         </div>
 
         {template.favorite && (
-          <span
-            className={`text-lg ${
+          <Star
+            className={`h-4 w-4 shrink-0 ${
               selected
-                ? "text-white"
-                : "text-zinc-400"
+                ? "fill-amber-300 text-amber-300"
+                : "fill-amber-400 text-amber-400"
             }`}
-          >
-            ★
-          </span>
+          />
         )}
       </div>
 

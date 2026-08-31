@@ -1,6 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import {
+  Check,
+  Copy,
+  Sparkles,
+} from "lucide-react";
 
 export default function PromptPreview({
   prompt,
@@ -51,11 +56,19 @@ export default function PromptPreview({
         <button
           onClick={handleCopy}
           disabled={!prompt.trim()}
-          className="rounded-xl bg-white px-4 py-2.5 text-xs font-bold text-zinc-900 transition hover:bg-zinc-200 disabled:cursor-not-allowed disabled:opacity-40"
+          className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 text-xs font-bold text-zinc-900 transition hover:bg-zinc-200 disabled:cursor-not-allowed disabled:opacity-40"
         >
-          {copied
-            ? "✓ Copied"
-            : "Copy Prompt"}
+          {copied ? (
+            <>
+              <Check className="h-3.5 w-3.5" />
+              Copied
+            </>
+          ) : (
+            <>
+              <Copy className="h-3.5 w-3.5" />
+              Copy Prompt
+            </>
+          )}
         </button>
       </div>
 
@@ -67,8 +80,8 @@ export default function PromptPreview({
         ) : (
           <div className="flex min-h-80 items-center justify-center text-center">
             <div>
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 text-xl">
-                ✦
+              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 text-zinc-300">
+                <Sparkles className="h-5 w-5" />
               </div>
 
               <p className="font-medium text-zinc-400">

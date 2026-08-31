@@ -5,6 +5,7 @@ import {
   useMemo,
   useState,
 } from "react";
+import { Plus, Sparkles } from "lucide-react";
 
 import { starterTemplates } from "@/data/templates";
 
@@ -216,8 +217,8 @@ export default function Home() {
           <div className="flex flex-col justify-between gap-5 md:flex-row md:items-center">
             <div>
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-950 text-lg font-bold text-white">
-                  P
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-950 text-white">
+                  <Sparkles className="h-5 w-5" />
                 </div>
 
                 <div>
@@ -254,9 +255,10 @@ export default function Home() {
                 onClick={() =>
                   setShowForm(true)
                 }
-                className="rounded-xl bg-zinc-900 px-4 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-zinc-800"
+                className="inline-flex items-center gap-2 rounded-xl bg-zinc-900 px-4 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-zinc-800"
               >
-                + New Template
+                <Plus className="h-4 w-4" />
+                New Template
               </button>
             </div>
           </div>

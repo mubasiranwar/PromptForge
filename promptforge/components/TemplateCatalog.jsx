@@ -1,16 +1,9 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { Plus, Search } from "lucide-react";
 import TemplateCard from "@/components/TemplateCard";
-
-const categories = [
-  "All",
-  "Coding",
-  "Writing",
-  "Productivity",
-  "Custom",
-  "Favorites",
-];
+import { templateCategories } from "@/data/templates";
 
 export default function TemplateCatalog({
   templates,
@@ -61,10 +54,11 @@ export default function TemplateCatalog({
 
             <button
               onClick={onCreate}
-              className="flex h-9 w-9 items-center justify-center rounded-xl bg-zinc-900 text-xl text-white transition hover:bg-zinc-800"
+              className="flex h-9 w-9 items-center justify-center rounded-xl bg-zinc-900 text-white transition hover:bg-zinc-800"
               title="Create template"
+              aria-label="Create template"
             >
-              +
+              <Plus className="h-4 w-4" />
             </button>
           </div>
         </div>
@@ -79,13 +73,11 @@ export default function TemplateCatalog({
             className="w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 pl-10 text-sm outline-none transition placeholder:text-zinc-400 focus:border-zinc-400 focus:bg-white"
           />
 
-          <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-sm text-zinc-400">
-            ⌕
-          </span>
+          <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" />
         </div>
 
         <div className="mb-4 flex gap-1.5 overflow-x-auto pb-1 lg:flex-wrap">
-          {categories.map((category) => (
+          {templateCategories.map((category) => (
             <button
               key={category}
               onClick={() =>
@@ -111,8 +103,8 @@ export default function TemplateCatalog({
         <div className="flex-1 space-y-3 overflow-y-auto pr-1">
           {filteredTemplates.length === 0 ? (
             <div className="rounded-2xl border border-dashed border-zinc-200 p-6 text-center">
-              <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-zinc-100">
-                ⌕
+              <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-zinc-100 text-zinc-500">
+                <Search className="h-4 w-4" />
               </div>
 
               <p className="text-sm font-semibold text-zinc-700">
